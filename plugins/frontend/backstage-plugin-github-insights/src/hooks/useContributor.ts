@@ -33,7 +33,7 @@ export const useContributor = (username: string): { contributor?: ContributorDat
   const { value, loading, error } = useAsync(async (): Promise<GithubRequestState | undefined> => {
     let result;
     try {
-      const token = await auth.getAccessToken(['repo']);
+      const token = process.env.GITHUB_TOKEN
       const octokit = new Octokit({ auth: token });
 
       const response = await octokit.request(`GET /users/${username}`, {

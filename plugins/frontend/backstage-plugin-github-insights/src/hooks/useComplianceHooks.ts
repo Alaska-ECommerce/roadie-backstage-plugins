@@ -35,7 +35,7 @@ export const useProtectedBranches = (entity: Entity): { branches?: [], error?: E
   const { value, loading, error } = useAsync(async (): Promise<any> => {
     let result;
     try {
-      const token = await auth.getAccessToken(['repo']);
+      const token = process.env.GITHUB_TOKEN
       const octokit = new Octokit({ auth: token });
 
       const response = await octokit.request(
@@ -87,7 +87,7 @@ export const useRepoLicence = (entity: Entity): { license?: string, error?: Erro
       return license
     }
 
-    const token = await auth.getAccessToken(['repo']);
+    const token = process.env.GITHUB_TOKEN
     const octokit = new Octokit({ auth: token });
 
     let result;

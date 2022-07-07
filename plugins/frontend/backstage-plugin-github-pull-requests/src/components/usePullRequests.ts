@@ -60,7 +60,7 @@ export function usePullRequests({
   const { loading, value: prData, retry, error } = useAsyncRetry<
     PullRequest[]
   >(async () => {
-    const token = await auth.getAccessToken(['repo']);
+    const token = process.env.GITHUB_TOKEN
     if (!repo) {
       return [];
     }

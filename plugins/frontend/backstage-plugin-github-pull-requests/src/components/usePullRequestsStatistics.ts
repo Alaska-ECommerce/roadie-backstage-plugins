@@ -110,7 +110,7 @@ export function usePullRequestsStatistics({
     value: statsData,
     error,
   } = useAsync(async (): Promise<PullRequestStats> => {
-    const token = await auth.getAccessToken(['repo']);
+    const token = process.env.GITHUB_TOKEN
     if (!repo) {
       return {
         avgTimeUntilMerge: 'Never',

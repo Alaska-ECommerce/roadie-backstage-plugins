@@ -16,7 +16,6 @@
 
 import { useAsync } from 'react-use';
 import { Octokit } from '@octokit/rest';
-import { useApi, githubAuthApiRef } from '@backstage/core-plugin-api';
 import { MarkdownContentProps, BASE_URL} from './types';
 
 export const useGithubFile = (options: MarkdownContentProps) => {

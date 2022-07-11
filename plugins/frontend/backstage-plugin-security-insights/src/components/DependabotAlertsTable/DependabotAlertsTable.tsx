@@ -21,7 +21,6 @@ import GitHubIcon from '@material-ui/icons/GitHub';
 import Alert from '@material-ui/lab/Alert';
 import { DateTime } from 'luxon';
 import { graphql } from '@octokit/graphql';
-import { useApi, githubAuthApiRef } from '@backstage/core-plugin-api';
 import { Progress, Table, TableColumn, Link } from '@backstage/core-components';
 import { useEntity } from "@backstage/plugin-catalog-react";
 import { useProjectName } from '../useProjectName';

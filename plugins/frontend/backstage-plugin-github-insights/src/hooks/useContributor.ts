@@ -16,7 +16,6 @@
 
 import { useAsync } from 'react-use';
 import { Octokit } from '@octokit/rest';
-import { useApi, githubAuthApiRef } from '@backstage/core-plugin-api';
 import { useEntityGithubScmIntegration } from './useEntityGithubScmIntegration';
 import { ContributorData, GithubRequestState } from '../components/types';
 import { useEntity } from '@backstage/plugin-catalog-react';

@@ -22,7 +22,6 @@ import {
   Progress,
   StructuredMetadataTable,
 } from '@backstage/core-components';
-import { useApi, githubAuthApiRef } from '@backstage/core-plugin-api';
 import { useAsync } from 'react-use';
 import { Octokit } from '@octokit/rest';
 import { useProjectEntity } from '../useProjectEntity';

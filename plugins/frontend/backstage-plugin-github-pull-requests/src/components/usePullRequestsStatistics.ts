@@ -102,7 +102,6 @@ export function usePullRequestsStatistics({
   state: PullRequestState;
 }) {
   const api = useApi(githubPullRequestsApiRef);
-  const auth = useApi(githubAuthApiRef);
   const baseUrl = useBaseUrl();
 
   const {

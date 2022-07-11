@@ -75,7 +75,6 @@ export const SecurityInsightsWidget = () => {
   const { entity } = useEntity();
   const { owner, repo } = useProjectEntity(entity);
   const classes = useStyles();
-  const auth = useApi(githubAuthApiRef);
   const { baseUrl, hostname } = useUrl(entity);
 
   const { value, loading, error } = useAsync(async (): Promise<

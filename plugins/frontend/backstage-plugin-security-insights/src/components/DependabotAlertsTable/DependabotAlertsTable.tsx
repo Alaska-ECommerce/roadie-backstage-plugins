@@ -153,7 +153,6 @@ export const DependabotAlertsTable: FC<{}> = () => {
   const { entity } = useEntity();
   const { hostname } = useUrl(entity);
   const { owner, repo } = useProjectEntity(entity);
-  const auth = useApi(githubAuthApiRef);
 
   const query = `
   query GetDependabotAlerts($name: String!, $owner: String!) {

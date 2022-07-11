@@ -24,7 +24,6 @@ import { useStore } from '../components/store';
 import { RequestError } from "@octokit/request-error";
 
 export const useContributor = (username: string): { contributor?: ContributorData, error?: Error, loading: boolean } => {
-  const auth = useApi(githubAuthApiRef);
   const { entity } = useEntity();
   const { baseUrl } = useEntityGithubScmIntegration(entity);
 

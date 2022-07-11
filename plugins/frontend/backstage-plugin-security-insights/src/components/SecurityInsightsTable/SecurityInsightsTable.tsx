@@ -46,7 +46,6 @@ export const SecurityInsightsTable: FC<SecurityInsightsTabProps> = ({ entity }) 
   const [tableData, setTableData] = useState<SecurityInsight[]>([]);
   const {owner, repo} = useProjectEntity(entity);
   const projectName = useProjectName(entity);
-  const auth = useApi(githubAuthApiRef);
   const { baseUrl } = useUrl(entity);
 
   const { value, loading, error } = useAsync(async (): Promise<SecurityInsight[]> => {

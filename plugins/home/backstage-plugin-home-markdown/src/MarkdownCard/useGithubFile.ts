@@ -20,7 +20,6 @@ import { useApi, githubAuthApiRef } from '@backstage/core-plugin-api';
 import { MarkdownContentProps, BASE_URL} from './types';
 
 export const useGithubFile = (options: MarkdownContentProps) => {
-  const auth = useApi(githubAuthApiRef);
   const { owner, repo, path, branch } = options;
   const { value, loading, error } = useAsync(async (): Promise<any> => {
     let result;

@@ -30,7 +30,6 @@ export const useRequest = (
   perPage: number = 0,
   maxResults: number = 0,
 ) => {
-  const auth = useApi(githubAuthApiRef);
   const { baseUrl } = useEntityGithubScmIntegration(entity);
   const { owner, repo } = useProjectEntity(entity);
 

@@ -48,7 +48,6 @@ export function usePullRequests({
   branch?: string;
 }) {
   const api = useApi(githubPullRequestsApiRef);
-  const auth = useApi(githubAuthApiRef);
   const baseUrl = useBaseUrl();
   const [total, setTotal] = useState(0);
   const [page, setPage] = useState(0);

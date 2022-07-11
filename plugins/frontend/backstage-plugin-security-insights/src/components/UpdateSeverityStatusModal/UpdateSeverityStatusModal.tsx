@@ -67,7 +67,6 @@ export const UpdateSeverityStatusModal: FC<UpdateSeverityStatusProps> = ({
   const [open, setOpen] = useState(false);
   const [dismissedReason, setDismissedReason] = useState('');
   const [errorMsg, setErrorMsg] = useState('');
-  const auth = useApi(githubAuthApiRef);
   const { baseUrl } = useUrl(entity);
 
   const handleClickOpen = () => {

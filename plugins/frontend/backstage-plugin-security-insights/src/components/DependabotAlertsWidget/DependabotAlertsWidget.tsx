@@ -144,7 +144,6 @@ export const DependabotAlertInformations: FC<DependabotAlertsProps> = ({ reposit
 export const DependabotAlertsWidget = () => {
   const { entity } = useEntity();
   const { owner, repo } = useProjectEntity(entity);
-  const auth = useApi(githubAuthApiRef);
   const { hostname } = useUrl(entity);
 
   const query = `

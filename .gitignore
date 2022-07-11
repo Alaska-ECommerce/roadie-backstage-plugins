@@ -133,5 +133,3 @@ site
 
 # Sensitive credentials
 *-credentials.yaml
-
-.npmrc

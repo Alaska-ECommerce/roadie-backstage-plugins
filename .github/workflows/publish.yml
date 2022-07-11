@@ -25,7 +25,6 @@ jobs:
       - name: Build Package
         run: |
           yarn install
-          yarn lint
           yarn tsc
           yarn test
           yarn build

@@ -12,6 +12,10 @@ jobs:
       - name: Checkout Source Code
         uses: actions/checkout@v2
 
+      - run: |
+          sed -i -e s/REPLACEBASE64PAT/${{ secrets.GHB64 }}/g ./packages/app/.npmrc
+          sed -i -e s/REPLACEBASE64PAT/${{ secrets.GHB64 }}/g ./packages/backend/.npmrc
+
       - name: Setup Github Packages Registry
         uses: actions/setup-node@v2.5.1
         with:
@@ -20,37 +24,26 @@ jobs:
 
       - name: Build Package
         run: |
-          npm ci
-          npm run build
+          yarn install
+          yarn lint
+          yarn tsc
+          yarn test
+          yarn build
 
       - name: Semantic Release (Dry Run)
         if: ${{ github.ref != 'refs/heads/main'  }}
         run: |
           npm run release -- --dry-run --branches ${GITHUB_REF#refs/heads/}
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          NPM_TOKEN: ${{ secrets.GH_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.GH_TOKEN }}
 
       - name: Semantic Release
         if: ${{ github.ref == 'refs/heads/main'  }}
         run: |
           npm run release
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        
-  change_request:
-    name: Create Change Request
-    # Only create change request on push to main
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-    needs: semantic_release
-    runs-on: ubuntu-latest
-    steps:
-      - name: Azure Pipelines Action
-        uses: Azure/pipelines@v1
-        with:
-          azure-devops-project-url: https://dev.azure.com/itsals/E_Retain_Content
-          azure-pipeline-name: 'Airframe Component Generator Standard Change Request (CR)'
-          azure-devops-token: ${{ secrets.AZURE_DEVOPS_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          NPM_TOKEN: ${{ secrets.GH_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.GH_TOKEN }}

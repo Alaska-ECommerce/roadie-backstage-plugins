@@ -54,5 +54,5 @@ export const useGithubSearchPullRequest = (query: string) => {
       comments: pr.comments,
       htmlUrl: pr.html_url,
     }));
-  }, [githubAuthApi]);
+  });
 };

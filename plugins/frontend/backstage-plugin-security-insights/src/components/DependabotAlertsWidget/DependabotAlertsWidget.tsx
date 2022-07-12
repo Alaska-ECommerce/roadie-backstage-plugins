@@ -20,7 +20,6 @@ import { makeStyles, Box, Typography, Theme } from '@material-ui/core';
 import { graphql } from '@octokit/graphql';
 import {
   useApi,
-  githubAuthApiRef,
   configApiRef
 } from '@backstage/core-plugin-api';
 import { useAsync } from 'react-use';

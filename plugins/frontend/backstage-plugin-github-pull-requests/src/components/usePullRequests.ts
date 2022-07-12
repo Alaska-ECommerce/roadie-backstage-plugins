@@ -17,7 +17,7 @@
 import { useEffect, useState } from 'react';
 import { useAsyncRetry } from 'react-use';
 import { githubPullRequestsApiRef } from '../api/GithubPullRequestsApi';
-import { useApi, githubAuthApiRef } from '@backstage/core-plugin-api';
+import { useApi } from '@backstage/core-plugin-api';
 import moment from 'moment';
 import { SearchPullRequestsResponseData } from '../types';
 import { useBaseUrl } from './useBaseUrl';
@@ -59,7 +59,7 @@ export function usePullRequests({
   const { loading, value: prData, retry, error } = useAsyncRetry<
     PullRequest[]
   >(async () => {
-    const token = process.env.GITHUB_TOKEN
+    let token = process?.env?.GITHUB_TOKEN!
     if (!repo) {
       return [];
     }

@@ -33,7 +33,7 @@ export type GithubPullRequestsApi = {
     baseUrl,
   }: {
     search: string;
-    token: string;
+    token: string | undefined;
     owner: string;
     repo: string;
     pageSize?: number;

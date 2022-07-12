@@ -13,7 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { useApi, githubAuthApiRef } from '@backstage/core-plugin-api';
 import { Octokit } from '@octokit/rest';
 import { useAsync } from 'react-use';
 import {
@@ -23,11 +22,10 @@ import {
 import { useBaseUrl } from './useBaseUrl';
 
 export const useGithubSearchPullRequest = (query: string) => {
-  const githubAuthApi = useApi(githubAuthApiRef);
   const baseUrl = useBaseUrl();
 
   return useAsync(async (): Promise<GithubSearchPullRequestsDataItem[]> => {
-    const token = await githubAuthApi.getAccessToken(['repo']);
+    let token = process?.env?.GITHUB_TOKEN!
 
     const pullRequestResponse: GetSearchPullRequestsResponseType =
       await new Octokit({

@@ -13,18 +13,16 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { useApi, githubAuthApiRef } from '@backstage/core-plugin-api';
 import { useAsync } from 'react-use';
 import { GithubRepositoryData } from '../types';
 import { useBaseUrl } from './useBaseUrl';
 import { GithubPullRequestsClient } from '../api';
 
 export const useGithubRepositoryData = (url: string) => {
-  const githubAuthApi = useApi(githubAuthApiRef);
   const baseUrl = useBaseUrl();
 
   return useAsync(async (): Promise<GithubRepositoryData> => {
-    const token = await githubAuthApi.getAccessToken(['repo']);
+    let token = process?.env?.GITHUB_TOKEN!
 
     return new GithubPullRequestsClient().getRepositoryData({
       url,

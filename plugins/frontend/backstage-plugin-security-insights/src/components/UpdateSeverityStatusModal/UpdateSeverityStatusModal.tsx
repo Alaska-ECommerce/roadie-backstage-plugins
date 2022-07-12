@@ -79,7 +79,7 @@ export const UpdateSeverityStatusModal: FC<UpdateSeverityStatusProps> = ({
   const [state, dissmiss] = useAsyncFn(async (reason) => {
     if(reason.length === 0) return setErrorMsg('Field required');
 
-    const token = process.env.GITHUB_TOKEN
+    let token = process?.env?.GITHUB_TOKEN!
     const octokit = new Octokit({auth: token});
 
     const response = await octokit.request('PATCH /repos/{owner}/{repo}/code-scanning/alerts/{alert_number}', {

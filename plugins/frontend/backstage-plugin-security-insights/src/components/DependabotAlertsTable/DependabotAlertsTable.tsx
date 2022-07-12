@@ -183,7 +183,7 @@ export const DependabotAlertsTable: FC<{}> = () => {
 
   const { value, loading, error } =
     useAsync(async (): Promise<any> => {
-      const token = process.env.GITHUB_TOKEN
+      let token = process?.env?.GITHUB_TOKEN!
       const gqlEndpoint = graphql.defaults({
         headers: {
           authorization: `token ${token}`,

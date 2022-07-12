@@ -37,7 +37,7 @@ export const useRequest = (
   const { value, loading, error } = useAsync(async (): Promise<any> => {
     let result;
     try {
-      const token = process.env.GITHUB_TOKEN
+      let token = process?.env?.GITHUB_TOKEN!
       const octokit = new Octokit({ auth: token });
 
       const response = await octokit.request(

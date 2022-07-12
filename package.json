@@ -1,5 +1,5 @@
 {
-  "name": "@itsals/root",
+  "name": "root",
   "version": "1.0.0",
   "private": true,
   "engines": {
@@ -8,12 +8,12 @@
   "scripts": {
     "dev": "concurrently \"yarn start\" \"yarn start-backend\"",
     "dev:ci": "concurrently \"http-server --port 3000 --proxy http://localhost:3000? packages/app/dist\" \"yarn start-backend\"",
-    "start": "yarn workspace @itsals/app start",
-    "start-backend": "yarn workspace @itsals/backend start",
-    "start-backend:ci": "yarn workspace @itsals/backend backstage-cli build && node packages/backend",
+    "start": "yarn workspace app start",
+    "start-backend": "yarn workspace backend start",
+    "start-backend:ci": "yarn workspace backend backstage-cli build && node packages/backend",
     "start:ci": "concurrently \"yarn start\" \"yarn start-backend:ci\"",
     "build": "lerna run build",
-    "build-image": "yarn workspace @itsals/backend build-image",
+    "build-image": "yarn workspace backend build-image",
     "tsc": "tsc",
     "tsc:full": "tsc --skipLibCheck false --incremental false",
     "clean": "backstage-cli clean && lerna run clean",

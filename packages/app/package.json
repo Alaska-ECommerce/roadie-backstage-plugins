@@ -1,5 +1,5 @@
 {
-  "name": "@itsals/app",
+  "name": "app",
   "version": "1.0.3",
   "private": true,
   "backstage": {
@@ -68,8 +68,8 @@
     "start-server-and-test": "^1.10.11"
   },
   "scripts": {
-    "start": "backstage-cli @itsals/app:serve",
-    "build": "backstage-cli @itsals/app:build",
+    "start": "backstage-cli app:serve",
+    "build": "backstage-cli app:build",
     "test": "backstage-cli test",
     "lint": "backstage-cli lint",
     "clean": "backstage-cli clean",

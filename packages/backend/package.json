@@ -1,5 +1,5 @@
 {
-  "name": "@itsals/backend",
+  "name": "backend",
   "version": "1.0.7",
   "main": "dist/index.cjs.js",
   "types": "src/index.ts",

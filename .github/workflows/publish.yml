@@ -43,4 +43,5 @@ jobs:
         run: |
           git config user.name "ecomm-github-automtn"
           git config user.email "ecomm_github_automtn@alaskaair.com"
+          git reset --hard
           lerna publish from-package --yes --no-verify-access

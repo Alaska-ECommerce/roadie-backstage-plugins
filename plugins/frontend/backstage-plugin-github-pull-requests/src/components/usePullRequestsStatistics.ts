@@ -16,7 +16,7 @@
 
 import { useAsync } from 'react-use';
 import { githubPullRequestsApiRef } from '../api/GithubPullRequestsApi';
-import { useApi, githubAuthApiRef } from '@backstage/core-plugin-api';
+import { useApi } from '@backstage/core-plugin-api';
 import moment from 'moment';
 import { useBaseUrl } from './useBaseUrl';
 import { PullRequestState, SearchPullRequestsResponseData } from '../types';

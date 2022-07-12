@@ -27,7 +27,6 @@ jobs:
         run: |
           yarn install
           yarn tsc
-          yarn test
           yarn build
 
       # - name: Semantic Release (Dry Run)

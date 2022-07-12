@@ -1,5 +1,5 @@
 {
-  "name": "app",
+  "name": "@itsals/app",
   "version": "1.0.3",
   "private": true,
   "backstage": {

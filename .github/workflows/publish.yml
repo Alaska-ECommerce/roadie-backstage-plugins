@@ -20,6 +20,7 @@ jobs:
         uses: actions/setup-node@v2.5.1
         with:
           registry-url: 'https://itsals.pkgs.visualstudio.com/_packaging/as.com-npm/npm/registry/'
+          always-auth: true
           
 
       - name: Build Package

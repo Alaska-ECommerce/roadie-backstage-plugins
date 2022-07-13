@@ -41,7 +41,7 @@ jobs:
 
       - name: Run publish
         run: |
-          sed -i -e s/REPLACEBASE64PAT/${{ secrets.ADOB64 }}/g ./.npmrc
+
           sed -i -e s/REPLACEBASE64PAT/${{ secrets.ADOB64 }}/g ./packages/app/.npmrc
           sed -i -e s/REPLACEBASE64PAT/${{ secrets.ADOB64 }}/g ./packages/backend/.npmrc
           # echo "//registry.npmjs.org/:_authToken=${{ secrets.ADO_PAT }}" >> .npmrc

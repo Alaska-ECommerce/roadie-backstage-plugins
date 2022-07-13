@@ -13,9 +13,9 @@ jobs:
         uses: actions/checkout@v2
 
       - run: |
-          sed -i -e s/REPLACEBASE64PAT/${{ secrets.GHB64 }}/g ./.npmrc
-          sed -i -e s/REPLACEBASE64PAT/${{ secrets.GHB64 }}/g ./packages/app/.npmrc
-          sed -i -e s/REPLACEBASE64PAT/${{ secrets.GHB64 }}/g ./packages/backend/.npmrc
+          sed -i -e s/REPLACEBASE64PAT/${{ secrets.ADOB64 }}/g ./.npmrc
+          sed -i -e s/REPLACEBASE64PAT/${{ secrets.ADOB64 }}/g ./packages/app/.npmrc
+          sed -i -e s/REPLACEBASE64PAT/${{ secrets.ADOB64 }}/g ./packages/backend/.npmrc
 
       - name: Setup Github Packages Registry
         uses: actions/setup-node@v2.5.1

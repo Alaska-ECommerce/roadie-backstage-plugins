@@ -12,11 +12,6 @@ jobs:
       - name: Checkout Source Code
         uses: actions/checkout@v2
 
-      - run: |
-          sed -i -e s/REPLACEBASE64PAT/${{ secrets.ADOB64 }}/g ./.npmrc
-          sed -i -e s/REPLACEBASE64PAT/${{ secrets.ADOB64 }}/g ./packages/app/.npmrc
-          sed -i -e s/REPLACEBASE64PAT/${{ secrets.ADOB64 }}/g ./packages/backend/.npmrc
-          cat .npmrc
       - name: Setup Github Packages Registry
         uses: actions/setup-node@v2.5.1
         with:
@@ -48,7 +43,13 @@ jobs:
         run: |
           git config user.name "ecomm-github-automtn"
           git config user.email "ecomm_github_automtn@alaskaair.com"
+
+          sed -i -e s/REPLACEBASE64PAT/${{ secrets.ADOB64 }}/g ./.npmrc
+          sed -i -e s/REPLACEBASE64PAT/${{ secrets.ADOB64 }}/g ./packages/app/.npmrc
+          sed -i -e s/REPLACEBASE64PAT/${{ secrets.ADOB64 }}/g ./packages/backend/.npmrc
+          
           git update-index --assume-unchanged .npmrc
           git update-index --assume-unchanged ./packages/app/.npmrc
           git update-index --assume-unchanged ./packages/backend/.npmrc
+          
           lerna publish from-package --yes --no-verify-access

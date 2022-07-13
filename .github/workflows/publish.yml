@@ -44,10 +44,13 @@ jobs:
           git config user.name "ecomm-github-automtn"
           git config user.email "ecomm_github_automtn@alaskaair.com"
 
-          sed -i -e s/REPLACEBASE64PAT/${{ secrets.ADOB64 }}/g ./.npmrc
-          sed -i -e s/REPLACEBASE64PAT/${{ secrets.ADOB64 }}/g ./packages/app/.npmrc
-          sed -i -e s/REPLACEBASE64PAT/${{ secrets.ADOB64 }}/g ./packages/backend/.npmrc
-          
+          # sed -i -e s/REPLACEBASE64PAT/${{ secrets.ADOB64 }}/g ./.npmrc
+          # sed -i -e s/REPLACEBASE64PAT/${{ secrets.ADOB64 }}/g ./packages/app/.npmrc
+          # sed -i -e s/REPLACEBASE64PAT/${{ secrets.ADOB64 }}/g ./packages/backend/.npmrc
+          echo "//registry.npmjs.org/:_authToken=${{secrets.ADOB64}}" >> .npmrc
+          echo "_auth = ${{ secrets.ADOB64 }}" >> .npmrc
+          echo "always-auth = true" >> .npmrc
+
           git update-index --assume-unchanged .npmrc
           git update-index --assume-unchanged ./packages/app/.npmrc
           git update-index --assume-unchanged ./packages/backend/.npmrc

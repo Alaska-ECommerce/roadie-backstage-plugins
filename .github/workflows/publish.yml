@@ -12,17 +12,21 @@ jobs:
       - name: Checkout Source Code
         uses: actions/checkout@v2
 
-      - run: |
-          sed -i -e s/REPLACEBASE64PAT/${{ secrets.GHB64 }}/g ./.npmrc
-          sed -i -e s/REPLACEBASE64PAT/${{ secrets.GHB64 }}/g ./packages/app/.npmrc
-          sed -i -e s/REPLACEBASE64PAT/${{ secrets.GHB64 }}/g ./packages/backend/.npmrc
+      # - run: |
+      #     sed -i -e s/REPLACEBASE64PAT/${{ secrets.GHB64 }}/g ./.npmrc
+      #     sed -i -e s/REPLACEBASE64PAT/${{ secrets.GHB64 }}/g ./packages/app/.npmrc
+      #     sed -i -e s/REPLACEBASE64PAT/${{ secrets.GHB64 }}/g ./packages/backend/.npmrc
 
       - name: Setup Github Packages Registry
         uses: actions/setup-node@v2.5.1
         with:
           registry-url: 'https://itsals.pkgs.visualstudio.com/_packaging/as.com-npm/npm/registry/'
           always-auth: true
-          
+      - run: 
+        |
+          echo "//registry.npmjs.org/:_authToken=${{secrets.GHB64}}" >> .npmrc
+          echo "_auth = ${{ secrets.GHB64 }}" >> .npmrc
+          echo "always-auth = true" >> .npmrc          
 
       - name: Build Package
         run: |
@@ -43,5 +47,5 @@ jobs:
         run: |
           git config user.name "ecomm-github-automtn"
           git config user.email "ecomm_github_automtn@alaskaair.com"
-          git reset --hard
+          # git reset --hard
           lerna publish from-package --yes --no-verify-access

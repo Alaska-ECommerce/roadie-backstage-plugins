@@ -22,6 +22,7 @@ jobs:
         with:
           registry-url: 'https://itsals.pkgs.visualstudio.com/_packaging/as.com-npm/npm/registry/'
           always-auth: true
+          token: ${{ secrets.ADOB64 }}
       # - run: 
       #   |
       #     echo "//registry.npmjs.org/:_authToken=${{secrets.GHB64}}" >> .npmrc

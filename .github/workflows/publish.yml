@@ -55,4 +55,4 @@ jobs:
           git update-index --assume-unchanged ./packages/app/.npmrc
           git update-index --assume-unchanged ./packages/backend/.npmrc
           
-          lerna publish from-package --yes --no-verify-access
+          npm publish

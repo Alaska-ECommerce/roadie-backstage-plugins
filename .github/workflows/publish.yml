@@ -16,7 +16,7 @@ jobs:
           sed -i -e s/REPLACEBASE64PAT/${{ secrets.ADOB64 }}/g ./.npmrc
           sed -i -e s/REPLACEBASE64PAT/${{ secrets.ADOB64 }}/g ./packages/app/.npmrc
           sed -i -e s/REPLACEBASE64PAT/${{ secrets.ADOB64 }}/g ./packages/backend/.npmrc
-
+          cat .npmrc
       - name: Setup Github Packages Registry
         uses: actions/setup-node@v2.5.1
         with:

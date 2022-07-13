@@ -12,12 +12,12 @@ jobs:
       - name: Checkout Source Code
         uses: actions/checkout@v2
 
-      - name: Setup Github Packages Registry
-        uses: actions/setup-node@v2.5.1
-        with:
-          registry-url: 'https://itsals.pkgs.visualstudio.com/_packaging/as.com-npm/npm/registry/'
-          always-auth: true
-          token: ${{ secrets.ADOB64 }}
+      # - name: Setup Github Packages Registry
+      #   uses: actions/setup-node@v2.5.1
+      #   with:
+      #     registry-url: 'https://itsals.pkgs.visualstudio.com/_packaging/as.com-npm/npm/registry/'
+      #     always-auth: true
+      #     token: ${{ secrets.ADOB64 }}
       # - run: 
       #   |
       #     echo "//registry.npmjs.org/:_authToken=${{secrets.GHB64}}" >> .npmrc

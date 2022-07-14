@@ -31,7 +31,15 @@ jobs:
           yarn install
           yarn tsc
           yarn build
-
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+          registry-url: 'https://itsals.pkgs.visualstudio.com/_packaging/as.com-npm/npm/registry/'
+          # Defaults to the user or organization that owns the workflow file
+          scope: '@alaskaair'
+      - run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.ADOB6 }}
       # - name: Semantic Release (Dry Run)
       #   if: ${{ github.ref != 'refs/heads/main'  }}
       #   run: |
@@ -41,23 +49,23 @@ jobs:
       #     NPM_TOKEN: ${{ secrets.GH_TOKEN }}
       #     NODE_AUTH_TOKEN: ${{ secrets.GH_TOKEN }}
 
-      - name: Run publish
-        run: |
+      # - name: Run publish
+      #   run: |
 
-          sed -i -e s/ALASKA_NPM_TOKEN/${{ secrets.ADOB64 }}/g ./packages/app/.npmrc
-          sed -i -e s/ALASKA_NPM_TOKEN/${{ secrets.ADOB64 }}/g ./packages/backend/.npmrc
+      #     sed -i -e s/ALASKA_NPM_TOKEN/${{ secrets.ADOB64 }}/g ./packages/app/.npmrc
+      #     sed -i -e s/ALASKA_NPM_TOKEN/${{ secrets.ADOB64 }}/g ./packages/backend/.npmrc
 
-          # cat ./packages/app/.npmrc
-          # cat ./packages/backend/.npmrc
-          # echo "//registry.npmjs.org/:_authToken=${{ secrets.ADO_PAT }}" >> .npmrc
-          # echo "_auth = ${{ secrets.ADO_PAT }}" >> .npmrc
-          # echo "always-auth = true" >> .npmrc
+      #     # cat ./packages/app/.npmrc
+      #     # cat ./packages/backend/.npmrc
+      #     # echo "//registry.npmjs.org/:_authToken=${{ secrets.ADO_PAT }}" >> .npmrc
+      #     # echo "_auth = ${{ secrets.ADO_PAT }}" >> .npmrc
+      #     # echo "always-auth = true" >> .npmrc
 
-          git config user.name "ecomm-github-automtn"
-          git config user.email "ecomm_github_automtn@alaskaair.com"
+      #     git config user.name "ecomm-github-automtn"
+      #     git config user.email "ecomm_github_automtn@alaskaair.com"
                   
-          git update-index --assume-unchanged ./packages/app/.npmrc
-          git update-index --assume-unchanged ./packages/backend/.npmrc
+      #     git update-index --assume-unchanged ./packages/app/.npmrc
+      #     git update-index --assume-unchanged ./packages/backend/.npmrc
           
-          npm login --registry=https://itsals.pkgs.visualstudio.com/_packaging/as.com-npm/npm/registry/
-          npm publish
+      #     npm login --registry=https://itsals.pkgs.visualstudio.com/_packaging/as.com-npm/npm/registry/
+      #     npm publish

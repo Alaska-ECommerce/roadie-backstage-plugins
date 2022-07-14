@@ -57,5 +57,5 @@ jobs:
           git update-index --assume-unchanged ./packages/app/.npmrc
           git update-index --assume-unchanged ./packages/backend/.npmrc
           
-          npm login --scope=@itsals --registry=https://itsals.pkgs.visualstudio.com/_packaging/as.com-npm/npm/registry/
+          npm login --registry=https://itsals.pkgs.visualstudio.com/_packaging/as.com-npm/npm/registry/
           npm publish

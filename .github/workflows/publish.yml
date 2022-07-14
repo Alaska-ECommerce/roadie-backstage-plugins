@@ -28,6 +28,7 @@ jobs:
 
       - name: Build Package
         run: |
+          yarn set version 1.22.17
           yarn install
           yarn tsc
           yarn build

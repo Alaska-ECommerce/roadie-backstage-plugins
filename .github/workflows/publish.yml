@@ -40,12 +40,14 @@ jobs:
       #     GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
       #     NPM_TOKEN: ${{ secrets.GH_TOKEN }}
       #     NODE_AUTH_TOKEN: ${{ secrets.GH_TOKEN }}
+      # - name: Authenticate with private NPM package
+      #   run: echo "//registry.npmjs.org/:_authToken=${{ secrets.ADOB64 }}" > ~/.npmrc
 
       - name: Run publish
         run: |
 
-          sed -i -e s/REPLACEBASE64PAT/${{ secrets.ADOB64 }}/g ./packages/app/.npmrc
-          sed -i -e s/REPLACEBASE64PAT/${{ secrets.ADOB64 }}/g ./packages/backend/.npmrc
+          # sed -i -e s/REPLACEBASE64PAT/${{ secrets.ADOB64 }}/g ./packages/app/.npmrc
+          # sed -i -e s/REPLACEBASE64PAT/${{ secrets.ADOB64 }}/g ./packages/backend/.npmrc
 
           # cat ./packages/app/.npmrc
           # cat ./packages/backend/.npmrc
@@ -53,11 +55,13 @@ jobs:
           # echo "_auth = ${{ secrets.ADO_PAT }}" >> .npmrc
           # echo "always-auth = true" >> .npmrc
 
-          git config user.name "ecomm-github-automtn"
-          git config user.email "ecomm_github_automtn@alaskaair.com"
+          # git config user.name "ecomm-github-automtn"
+          # git config user.email "ecomm_github_automtn@alaskaair.com"
                   
-          git update-index --assume-unchanged ./packages/app/.npmrc
-          git update-index --assume-unchanged ./packages/backend/.npmrc
+          # git update-index --assume-unchanged ./packages/app/.npmrc
+          # git update-index --assume-unchanged ./packages/backend/.npmrc
           
-          npm login --registry=https://itsals.pkgs.visualstudio.com/_packaging/as.com-npm/npm/registry/
+          # npm login --registry=https://itsals.pkgs.visualstudio.com/_packaging/as.com-npm/npm/registry/
           npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.ADOB64 }}

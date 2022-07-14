@@ -39,7 +39,7 @@ jobs:
           scope: '@alaskaair'
       - run: npm publish
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.ADOB6 }}
+          NODE_AUTH_TOKEN: ${{ secrets.ADOB64 }}
       # - name: Semantic Release (Dry Run)
       #   if: ${{ github.ref != 'refs/heads/main'  }}
       #   run: |

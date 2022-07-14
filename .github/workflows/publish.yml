@@ -9,6 +9,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - uses: rtCamp/action-cleanup@master
+        name: Clean Workspace
       - name: Checkout Source Code
         uses: actions/checkout@v2
 

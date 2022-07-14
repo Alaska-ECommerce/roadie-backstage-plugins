@@ -40,24 +40,13 @@ jobs:
       #     GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
       #     NPM_TOKEN: ${{ secrets.GH_TOKEN }}
       #     NODE_AUTH_TOKEN: ${{ secrets.GH_TOKEN }}
-      - name: Render Deployment YAML App
-        uses: nowactions/envsubst@v1
-        with:
-          input: ./packages/app/.npmrc.tmpl
-          output: ./packages/app/.npmrc
-        env:
-          REPLACEBASE64PAT: ${{ secrets.ADOB64 }}
-
-      - name: Render Deployment YAML Backend
-        uses: nowactions/envsubst@v1
-        with:
-          input: ./packages/backend/.npmrc.tmpl
-          output: ./packages/backend/.npmrc
-        env:
-          REPLACEBASE64PAT: ${{ secrets.ADOB64 }}
 
       - name: Run publish
         run: |
+
+          sed -i -e s/ALASKA_NPM_TOKEN/${{ secrets.ADOB64 }}/g ./packages/app/.npmrc
+          sed -i -e s/ALASKA_NPM_TOKEN/${{ secrets.ADOB64 }}/g ./packages/backend/.npmrc
+
           # cat ./packages/app/.npmrc
           # cat ./packages/backend/.npmrc
           # echo "//registry.npmjs.org/:_authToken=${{ secrets.ADO_PAT }}" >> .npmrc
@@ -70,5 +59,5 @@ jobs:
           git update-index --assume-unchanged ./packages/app/.npmrc
           git update-index --assume-unchanged ./packages/backend/.npmrc
           
-          # npm login --registry=https://itsals.pkgs.visualstudio.com/_packaging/as.com-npm/npm/registry/
+          npm login --registry=https://itsals.pkgs.visualstudio.com/_packaging/as.com-npm/npm/registry/
           npm publish

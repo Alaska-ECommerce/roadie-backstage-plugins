@@ -9,8 +9,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: rtCamp/action-cleanup@master
-        name: Clean Workspace
+      # - uses: rtCamp/action-cleanup@master
+      #   name: Clean Workspace
       - name: Checkout Source Code
         uses: actions/checkout@v2
 
@@ -47,8 +47,8 @@ jobs:
           sed -i -e s/REPLACEBASE64PAT/${{ secrets.ADOB64 }}/g ./packages/app/.npmrc
           sed -i -e s/REPLACEBASE64PAT/${{ secrets.ADOB64 }}/g ./packages/backend/.npmrc
 
-          cat ./packages/app/.npmrc
-          cat ./packages/backend/.npmrc
+          # cat ./packages/app/.npmrc
+          # cat ./packages/backend/.npmrc
           # echo "//registry.npmjs.org/:_authToken=${{ secrets.ADO_PAT }}" >> .npmrc
           # echo "_auth = ${{ secrets.ADO_PAT }}" >> .npmrc
           # echo "always-auth = true" >> .npmrc

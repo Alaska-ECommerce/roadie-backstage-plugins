@@ -65,5 +65,7 @@ jobs:
           git config user.email "ecomm_github_automtn@alaskaair.com"
                   
           git update-index --assume-unchanged ./.npmrc
+          git update-index --assume-unchanged .yarnrc
+          git update-index --assume-unchanged .yarn/
           
           lerna publish from-package --yes --no-verify-access

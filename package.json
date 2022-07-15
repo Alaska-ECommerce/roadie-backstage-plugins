@@ -1,9 +1,13 @@
 {
   "name": "root",
   "version": "1.0.0",
-  "private": false,
+  "private": true,
   "engines": {
     "node": "14 || 16"
+  },
+  "publishConfig": {
+    "access": "restricted",
+    "registry": "https://itsals.pkgs.visualstudio.com/_packaging/as.com-npm/npm/registry/"
   },
   "scripts": {
     "dev": "concurrently \"yarn start\" \"yarn start-backend\"",

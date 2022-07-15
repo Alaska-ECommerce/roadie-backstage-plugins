@@ -68,4 +68,4 @@ jobs:
           # git update-index --assume-unchanged .yarnrc
           # git update-index --assume-unchanged .yarn/
           
-          lerna publish from-package --yes --no-verify-access --npm-client npm
+          lerna publish from-package --yes --no-verify-access

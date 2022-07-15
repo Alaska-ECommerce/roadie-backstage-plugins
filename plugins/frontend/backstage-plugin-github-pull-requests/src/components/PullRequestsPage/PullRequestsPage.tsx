@@ -27,7 +27,7 @@ import { PullRequestsTable } from '../PullRequestsTable';
 const PullRequestsPage = () => (
   <Page themeId="tool">
     <Content>
-      <ContentHeader title="GitHub Pull Requests">
+      <ContentHeader title="GitHub Pull Request(s)">
         <SupportButton>
           Plugin to show a project's pull requests on GitHub
         </SupportButton>

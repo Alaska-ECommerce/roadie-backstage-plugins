@@ -28,8 +28,7 @@ jobs:
 
       - name: Build Package
         run: |
-          yarn set version 1.22.17
-          yarn install
+          yarn install --frozen-lockfile
           yarn tsc
           yarn build
       # - uses: actions/setup-node@v3
@@ -55,7 +54,7 @@ jobs:
 
           echo "registry=https://itsals.pkgs.visualstudio.com/_packaging/as.com-npm/npm/registry/" >> .npmrc
           echo "always-auth=true" >> .npmrc
-          echo "@alaskaair:registry=https://itsals.pkgs.visualstudio.com/_packaging/as.com-npm/npm/registry/"" >> .npmrc
+          echo "@alaskaair:registry=https://itsals.pkgs.visualstudio.com/_packaging/as.com-npm/npm/registry/" >> .npmrc
           echo "@alaskaair:always-auth=true" >> .npmrc
           echo "//itsals.pkgs.visualstudio.com/_packaging/as.com-npm/npm/registry/:username=itsals" >> .npmrc
           echo "//itsals.pkgs.visualstudio.com/_packaging/as.com-npm/npm/registry/:_password=ALASKA_NPM_TOKEN" >> .npmrc

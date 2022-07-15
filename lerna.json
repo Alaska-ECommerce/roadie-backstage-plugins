@@ -3,7 +3,7 @@
     "packages/*",
     "plugins/**"
   ],
-  "npmClient": "npm",
+  "npmClient": "yarn",
   "useWorkspaces": true,
   "version": "independent"
 }

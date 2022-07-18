@@ -1,7 +1,9 @@
 {
   "packages": [
-    "packages/*",
-    "plugins/**"
+    "plugins/home/backstage-plugin-home-markdown/",
+    "plugins/frontend/backstage-plugin-security-insights/",
+    "plugins/frontend/backstage-plugin-github-pull-requests/",
+    "plugins/frontend/backstage-plugin-github-insights/"
   ],
   "npmClient": "yarn",
   "useWorkspaces": true,

@@ -1,5 +1,5 @@
 {
-  "name": "@roadiehq/backstage-plugin-home-markdown",
+  "name": "@alaskaair/backstage-plugin-home-markdown",
   "version": "2.0.3",
   "main": "src/index.ts",
   "types": "src/index.ts",
@@ -14,12 +14,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "github:RoadieHQ/roadie-backstage-plugins",
-    "directory": "plugins/scaffolder-actions/backstage-plugin-home-markdown"
+    "url": "github:Alaska-Ecommerce/roadie-backstage-plugins"
   },
   "bugs": {
-    "url": "https://github.com/RoadieHQ/roadie-backstage-plugins/issues",
-    "email": "support@roadie.io"
+    "url": "https://github.com/Alaska-Ecommerce/roadie-backstage-plugins/issues"
   },
   "scripts": {
     "start": "backstage-cli backend:dev",

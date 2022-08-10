@@ -38,8 +38,8 @@
     "winston": "^3.2.1"
   },
   "devDependencies": {
-    "@types/jest": "^26.0.7",
-    "@backstage/cli": "^0.17.0"
+    "@backstage/cli": "^0.17.0",
+    "@types/jest": "^26.0.7"
   },
   "files": [
     "dist"

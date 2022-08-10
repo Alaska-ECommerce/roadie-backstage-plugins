@@ -47,9 +47,9 @@
     "@octokit/types": "^6.14.2",
     "history": "^5.0.0",
     "immer": "9.0.7",
-    "zustand": "3.6.9",
     "react-router": "^6.0.0-beta.0",
-    "react-use": "^17.2.4"
+    "react-use": "^17.2.4",
+    "zustand": "3.6.9"
   },
   "peerDependencies": {
     "react": "^16.13.1 || ^17.0.0",

@@ -137,3 +137,4 @@ site
 
 *.npmrc
 .yarnrc
+.yarnrc.yaml

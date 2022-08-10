@@ -6,8 +6,9 @@
     "node": "14 || 16"
   },
   "publishConfig": {
-    "access": "restricted",
-    "registry": "https://itsals.pkgs.visualstudio.com/_packaging/as.com-npm/npm/registry/"
+    "registry": "https://npm.pkg.github.com",
+    "tag": "latest",
+    "access": "public"
   },
   "scripts": {
     "dev": "concurrently \"yarn start\" \"yarn start-backend\"",

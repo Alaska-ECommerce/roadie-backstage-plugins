@@ -28,6 +28,8 @@ jobs:
 
       - name: Build Package
         run: |
+          curl --compressed -o- -L https://yarnpkg.com/install.sh | bash
+          yarn set version berry
           yarn install --frozen-lockfile
           yarn tsc
           yarn build

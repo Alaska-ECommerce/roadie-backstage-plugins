@@ -30,7 +30,7 @@ jobs:
         run: |
           curl --compressed -o- -L https://yarnpkg.com/install.sh | bash
           yarn set version berry
-          yarn install --frozen-lockfile
+          yarn install
           yarn tsc
           yarn build
       # - uses: actions/setup-node@v3

@@ -50,19 +50,19 @@ jobs:
       #     GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
       #     NPM_TOKEN: ${{ secrets.GH_TOKEN }}
       #     NODE_AUTH_TOKEN: ${{ secrets.GH_TOKEN }}
-      - name: Secret Replace
-        run: |
+      # - name: Secret Replace
+      #   run: |
 
-          echo "registry=https://itsals.pkgs.visualstudio.com/_packaging/as.com-npm/npm/registry/" >> .npmrc
-          echo "always-auth=true" >> .npmrc
-          echo "@alaskaair:registry=https://itsals.pkgs.visualstudio.com/_packaging/as.com-npm/npm/registry/" >> .npmrc
-          echo "@alaskaair:always-auth=true" >> .npmrc
-          echo "//itsals.pkgs.visualstudio.com/_packaging/as.com-npm/npm/registry/:username=itsals" >> .npmrc
-          echo "//itsals.pkgs.visualstudio.com/_packaging/as.com-npm/npm/registry/:_password=ALASKA_NPM_TOKEN" >> .npmrc
-          echo "//itsals.pkgs.visualstudio.com/_packaging/as.com-npm/npm/registry/:email=ecomm_github_automtn@alaskaair.com" >> .npmrc
-          echo "//itsals.pkgs.visualstudio.com/_packaging/as.com-npm/npm/registry/:always-auth=true" >> .npmrc
+      #     echo "registry=https://itsals.pkgs.visualstudio.com/_packaging/as.com-npm/npm/registry/" >> .npmrc
+      #     echo "always-auth=true" >> .npmrc
+      #     echo "@alaskaair:registry=https://itsals.pkgs.visualstudio.com/_packaging/as.com-npm/npm/registry/" >> .npmrc
+      #     echo "@alaskaair:always-auth=true" >> .npmrc
+      #     echo "//itsals.pkgs.visualstudio.com/_packaging/as.com-npm/npm/registry/:username=itsals" >> .npmrc
+      #     echo "//itsals.pkgs.visualstudio.com/_packaging/as.com-npm/npm/registry/:_password=ALASKA_NPM_TOKEN" >> .npmrc
+      #     echo "//itsals.pkgs.visualstudio.com/_packaging/as.com-npm/npm/registry/:email=ecomm_github_automtn@alaskaair.com" >> .npmrc
+      #     echo "//itsals.pkgs.visualstudio.com/_packaging/as.com-npm/npm/registry/:always-auth=true" >> .npmrc
 
-          sed -i -e s/ALASKA_NPM_TOKEN/${{ secrets.ADOB64 }}/g .npmrc
+      #     sed -i -e s/ALASKA_NPM_TOKEN/${{ secrets.ADOB64 }}/g .npmrc
           
       - name: Run publish
         run: |

@@ -28,6 +28,7 @@ jobs:
 
       - name: Build Package
         run: |
+          npm version
           curl --compressed -o- -L https://yarnpkg.com/install.sh | bash
           yarn set version berry
           yarn install --immutable

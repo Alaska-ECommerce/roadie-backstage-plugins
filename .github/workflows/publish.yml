@@ -34,12 +34,12 @@ jobs:
           yarn install --immutable
           yarn tsc
           yarn build
-      # - uses: actions/setup-node@v3
-      #   with:
-      #     node-version: '16.x'
-      #     registry-url: 'https://itsals.pkgs.visualstudio.com/_packaging/as.com-npm/npm/registry/'
-      #     # Defaults to the user or organization that owns the workflow file
-      #     scope: '@alaskaair'
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16.15.0'
+          registry-url: 'https://itsals.pkgs.visualstudio.com/_packaging/as.com-npm/npm/registry/'
+          # Defaults to the user or organization that owns the workflow file
+          scope: '@alaskaair'
       # - run: npm publish
         # env:
         #   NODE_AUTH_TOKEN: ${{ secrets.ADOB64 }}

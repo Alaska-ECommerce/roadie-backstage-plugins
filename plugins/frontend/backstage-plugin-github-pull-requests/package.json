@@ -5,15 +5,15 @@
   "types": "src/index.ts",
   "license": "Apache-2.0",
   "private": false,
-  "homepage": "https://roadie.io/backstage/plugins/github-pull-requests/",
+  "homepage": "https://roadie.io/backstage/plugins/github-insights/",
   "bugs": {
-    "url": "https://github.com/RoadieHQ/roadie-backstage-plugins/issues",
-    "email": "support@roadie.io"
+    "url": "https://github.com/Alaska-ECommerce/roadie-backstage-plugins/issues",
+    "email": "some-email@alaskaair.com"
   },
   "repository": {
     "type": "git",
-    "url": "github:RoadieHQ/roadie-backstage-plugins",
-    "directory": "plugins/frontend/backstage-plugin-github-pull-requests"
+    "url": "github:Alaska-ECommerce/roadie-backstage-plugins",
+    "directory": "plugins/frontend/backstage-plugin-github-insights"
   },
   "publishConfig": {
     "access": "public",

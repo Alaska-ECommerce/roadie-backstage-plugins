@@ -20,7 +20,7 @@
 const { Octokit } = require('@octokit/rest');
 
 const baseOptions = {
-  owner: 'RoadieHQ',
+  owner: 'Alaska-ECommerce',
   repo: 'roadie-backstage-plugins',
 };
 
@@ -78,4 +78,4 @@ async function main() {
 main().catch(error => {
   console.error(error.stack);
   process.exit(1);
-}); 
+});

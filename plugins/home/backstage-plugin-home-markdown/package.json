@@ -1,5 +1,5 @@
 {
-  "name": "@roadiehq/backstage-plugin-home-markdown",
+  "name": "@alaska-ecommerce/backstage-plugin-home-markdown",
   "version": "2.0.3",
   "main": "src/index.ts",
   "types": "src/index.ts",

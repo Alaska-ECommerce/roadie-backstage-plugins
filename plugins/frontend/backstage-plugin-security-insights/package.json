@@ -1,5 +1,5 @@
 {
-  "name": "@roadiehq/backstage-plugin-security-insights",
+  "name": "@alaska-ecommerce/backstage-plugin-security-insights",
   "version": "2.0.2",
   "main": "src/index.ts",
   "types": "src/index.ts",

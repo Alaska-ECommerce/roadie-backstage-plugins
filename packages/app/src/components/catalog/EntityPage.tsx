@@ -56,73 +56,18 @@ import {
   EntityGithubPullRequestsOverviewCard,
 } from '@roadiehq/backstage-plugin-github-pull-requests';
 import {
-  isAWSLambdaAvailable,
-  EntityAWSLambdaOverviewCard,
-} from '@roadiehq/backstage-plugin-aws-lambda';
-import {
   EntityGithubInsightsContent,
   EntityGithubInsightsLanguagesCard,
   EntityGithubInsightsReadmeCard,
   EntityGithubInsightsReleasesCard,
   isGithubInsightsAvailable,
 } from '@roadiehq/backstage-plugin-github-insights';
-import {
-  EntityJiraOverviewCard,
-  isJiraAvailable,
-} from '@roadiehq/backstage-plugin-jira';
-import {
-  EntityDatadogContent,
-  EntityDatadogGraphCard,
-  isDatadogGraphAvailable,
-} from '@roadiehq/backstage-plugin-datadog';
-import {
-  EntityTravisCIContent,
-  EntityTravisCIOverviewCard,
-  isTravisciAvailable,
-} from '@roadiehq/backstage-plugin-travis-ci';
-import {
-  EntityBuildkiteContent,
-  isBuildkiteAvailable,
-} from '@roadiehq/backstage-plugin-buildkite';
-import { EntityBugsnagErrorsOverviewTable } from '@roadiehq/backstage-plugin-bugsnag';
-import {
-  EntitySecurityInsightsContent,
-  EntityGithubDependabotContent,
-  SecurityInsightsWidget,
-  DependabotAlertsWidget,
-  isSecurityInsightsAvailable,
-} from '@roadiehq/backstage-plugin-security-insights';
-import {
-  EntityArgoCDHistoryCard,
-  EntityArgoCDOverviewCard,
-  EntityArgoCDContent,
-  isArgocdAvailable,
-} from '@roadiehq/backstage-plugin-argo-cd';
-import {
-  EntityPrometheusAlertCard,
-  EntityPrometheusContent,
-  EntityPrometheusGraphCard,
-} from '@roadiehq/backstage-plugin-prometheus';
-import { EntityIFrameCard } from '@roadiehq/backstage-plugin-iframe';
-import {
-  S3BucketCard,
-  LambdaFunctionCard,
-  IAMUserCard,
-} from '@roadiehq/backstage-plugin-aws';
 
 const cicdContent = (
   <Grid container spacing={3} alignItems="stretch">
     <EntitySwitch>
       <EntitySwitch.Case if={isGithubActionsAvailable}>
         <EntityGithubActionsContent />
-      </EntitySwitch.Case>
-
-      <EntitySwitch.Case if={isTravisciAvailable}>
-        <EntityTravisCIContent />
-      </EntitySwitch.Case>
-
-      <EntitySwitch.Case if={isBuildkiteAvailable}>
-        <EntityBuildkiteContent />
       </EntitySwitch.Case>
 
       <EntitySwitch.Case>
@@ -150,25 +95,7 @@ const overviewContent = (
     <Grid item md={6}>
       <EntityAboutCard variant="gridItem" />
     </Grid>
-    <Grid item md={6}>
-      <LambdaFunctionCard />
-    </Grid>
-    <Grid item md={6}>
-      <S3BucketCard />
-    </Grid>
-    <Grid item md={6}>
-      <IAMUserCard />
-    </Grid>
-    <EntitySwitch>
-      <EntitySwitch.Case if={isSecurityInsightsAvailable}>
-        <Grid item md={6}>
-          <SecurityInsightsWidget />
-        </Grid>
-        <Grid item md={6}>
-          <DependabotAlertsWidget />
-        </Grid>
-      </EntitySwitch.Case>
-    </EntitySwitch>
+
     <EntitySwitch>
       <EntitySwitch.Case if={e => Boolean(isGithubInsightsAvailable(e))}>
         <Grid item md={6}>
@@ -180,44 +107,6 @@ const overviewContent = (
         </Grid>
       </EntitySwitch.Case>
     </EntitySwitch>
-    <EntitySwitch>
-      <EntitySwitch.Case if={e => Boolean(isAWSLambdaAvailable(e))}>
-        <Grid item md={6}>
-          <EntityAWSLambdaOverviewCard />
-        </Grid>
-      </EntitySwitch.Case>
-    </EntitySwitch>
-    <EntitySwitch>
-      <EntitySwitch.Case if={isJiraAvailable}>
-        <Grid item md={6}>
-          <EntityJiraOverviewCard />
-        </Grid>
-      </EntitySwitch.Case>
-    </EntitySwitch>
-    <EntitySwitch>
-      <EntitySwitch.Case if={isDatadogGraphAvailable}>
-        <Grid item>
-          <EntityDatadogGraphCard />
-        </Grid>
-      </EntitySwitch.Case>
-    </EntitySwitch>
-    <EntitySwitch>
-      <EntitySwitch.Case if={isTravisciAvailable}>
-        <Grid item>
-          <EntityTravisCIOverviewCard />
-        </Grid>
-      </EntitySwitch.Case>
-    </EntitySwitch>
-    <EntitySwitch>
-      <EntitySwitch.Case if={e => Boolean(isArgocdAvailable(e))}>
-        <Grid item sm={6}>
-          <EntityArgoCDHistoryCard />
-        </Grid>
-        <Grid item sm={6}>
-          <EntityArgoCDOverviewCard />
-        </Grid>
-      </EntitySwitch.Case>
-    </EntitySwitch>
     <Grid item md={6}>
       <EntityGithubPullRequestsOverviewCard />
     </Grid>
@@ -226,12 +115,6 @@ const overviewContent = (
     </Grid>
     <Grid item md={8} xs={12}>
       <EntityHasSubcomponentsCard variant="gridItem" />
-    </Grid>
-    <Grid item md={8}>
-      <EntityPrometheusAlertCard />
-    </Grid>
-    <Grid item md={6}>
-      <EntityPrometheusGraphCard />
     </Grid>
   </Grid>
 );
@@ -260,15 +143,6 @@ const serviceEntityPage = (
     <EntityLayout.Route path="/code-insights" title="Code Insights">
       <EntityGithubInsightsContent />
     </EntityLayout.Route>
-    <EntityLayout.Route path="/bugsnag" title="Bugsnag">
-      <EntityBugsnagErrorsOverviewTable />
-    </EntityLayout.Route>
-    <EntityLayout.Route path="/datadog" title="Datadog">
-      <EntityDatadogContent />
-    </EntityLayout.Route>
-    <EntityLayout.Route path="/prometheus" title="Prometheus">
-      <EntityPrometheusContent />
-    </EntityLayout.Route>
     <EntityLayout.Route path="/dependencies" title="Dependencies">
       <Grid container spacing={3} alignItems="stretch">
         <Grid item md={6}>
@@ -281,15 +155,6 @@ const serviceEntityPage = (
     </EntityLayout.Route>
     <EntityLayout.Route path="/docs" title="Docs">
       <EntityTechdocsContent />
-    </EntityLayout.Route>
-    <EntityLayout.Route path="/security-insights" title="Security Insights">
-      <EntitySecurityInsightsContent />
-    </EntityLayout.Route>
-    <EntityLayout.Route path="/dependabot" title="Dependabot">
-      <EntityGithubDependabotContent />
-    </EntityLayout.Route>
-    <EntityLayout.Route path="/argocd" title="Argo CD">
-      <EntityArgoCDContent />
     </EntityLayout.Route>
   </EntityLayout>
 );

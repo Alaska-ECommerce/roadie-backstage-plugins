@@ -289,9 +289,6 @@ const systemPage = (
         <Grid item md={6}>
           <EntityHasResourcesCard variant="gridItem" />
         </Grid>
-        <Grid item md={6}>
-          <EntityIFrameCard {...{ src: 'https://example.com' }} />
-        </Grid>
       </Grid>
     </EntityLayout.Route>
     <EntityLayout.Route path="/diagram" title="Diagram">

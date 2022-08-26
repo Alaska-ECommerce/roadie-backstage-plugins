@@ -29,7 +29,7 @@ if (!BOOL_CREATE_RELEASE) {
     );
 }
 
-const GH_OWNER = 'RoadieHQ';
+const GH_OWNER = 'Alaska-ECommerce';
 const GH_REPO = 'roadie-backstage-plugins';
 const EXPECTED_COMMIT_MESSAGE = /^Merge pull request #(?<prNumber>[0-9]+) from/;
 const CHANGESET_RELEASE_BRANCH = 'roadie-backstage-plugins/changeset-release/main';

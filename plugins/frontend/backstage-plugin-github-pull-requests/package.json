@@ -1,5 +1,5 @@
 {
-  "name": "@roadiehq/backstage-plugin-github-pull-requests",
+  "name": "@alaska-ecommerce/backstage-plugin-github-pull-requests",
   "version": "2.2.0",
   "main": "src/index.ts",
   "types": "src/index.ts",

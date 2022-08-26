@@ -52,7 +52,7 @@ jobs:
   release:
     needs: build
 
-    if: needs.build.outputs.needs_release == 'true'
+    # if: needs.build.outputs.needs_release == 'true'
 
     runs-on: ubuntu-latest
 

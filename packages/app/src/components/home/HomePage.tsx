@@ -17,11 +17,11 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import { HomePageToolkit } from '@backstage/plugin-home';
-import { HomePageMarkdown } from '@roadiehq/backstage-plugin-home-markdown';
+import { HomePageMarkdown } from '@alaska-ecommerce/backstage-plugin-home-markdown';
 import {
   HomePageRequestedReviewsCard,
   HomePageYourOpenPullRequestsCard,
-} from '@roadiehq/backstage-plugin-github-pull-requests';
+} from '@alaska-ecommerce/backstage-plugin-github-pull-requests';
 import { Content, PageWithHeader } from '@backstage/core-components';
 
 export const HomePage = () => {

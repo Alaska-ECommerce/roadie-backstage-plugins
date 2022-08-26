@@ -54,14 +54,14 @@ import { EntityTechdocsContent } from '@backstage/plugin-techdocs';
 import {
   EntityGithubPullRequestsContent,
   EntityGithubPullRequestsOverviewCard,
-} from '@roadiehq/backstage-plugin-github-pull-requests';
+} from '@alaska-ecommerce/backstage-plugin-github-pull-requests';
 import {
   EntityGithubInsightsContent,
   EntityGithubInsightsLanguagesCard,
   EntityGithubInsightsReadmeCard,
   EntityGithubInsightsReleasesCard,
   isGithubInsightsAvailable,
-} from '@roadiehq/backstage-plugin-github-insights';
+} from '@alaska-ecommerce/backstage-plugin-github-insights';
 
 const cicdContent = (
   <Grid container spacing={3} alignItems="stretch">
